@@ -13,18 +13,19 @@ function append(x) {
 }
 
 function operate(x) {
-	document.getElementById("lcd").value = "";
-	if(result==null && text=="") {//do nothin
-	} else if(pressed && rightside==null) {//do nothin
-	} else if(pressed) {
-	   //case if the input is: 'x (operator) y (operator)' 
-	   result(); //it will do '=' function
-	   operator = x;
-	   text = "";
-	   pressed = true;
-	}
-	else { //case of input: 'x (operator)'
-	   if(text != "") result = parseInt(text);
+	if((pressed || result==null) && text=="") {
+	//case if the input : ' x (operator) (operator) '    
+	//or : ' (operator) '
+	   if(pressed) operator = x;
+	} else {
+	   if(pressed) {
+	     //case if the input is: 'x (operator) y (operator)' 
+	     getresult(); //it will do '=' function
+	   }
+	   else { //case of input: 'x (operator)'
+	     document.getElementById("lcd").value = "";
+	     if(text != "") result = parseInt(text);
+	   }
 	   operator = x;
 	   text = ""; //reinitialize text for rightside
 	   pressed = true;	
