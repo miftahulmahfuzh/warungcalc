@@ -2,6 +2,13 @@
    position: inline;
    padding-top: 10px;
 }
-.lcd {
+
+#lcd {
+   width: 135px;
+   text-align: right;
 }
 
+.button input{
+   padding: 0;
+   width: 32px;
+}
